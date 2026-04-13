@@ -1,0 +1,18 @@
+.containerTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    height: 32px;
+    width: 30%;
+
+    &__logo {
+        object-fit: cover;
+    }
+
+    &__title {
+        font-size: 11pt;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+}

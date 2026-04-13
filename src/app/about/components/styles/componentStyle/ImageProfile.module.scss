@@ -1,0 +1,10 @@
+.imageProfileWrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    &__imageProfile {
+        object-fit: cover; 
+        border-radius: 50%;
+    }
+}

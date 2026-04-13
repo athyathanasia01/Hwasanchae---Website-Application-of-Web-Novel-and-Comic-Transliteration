@@ -1,0 +1,23 @@
+.groupPhrase {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    &__title {
+        font-size: 28pt;
+        font-weight: 800;
+        color: #FFFFFF;
+        text-align: center;
+
+        align-self: center;
+    }
+
+    &__unorderList {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+    }
+}

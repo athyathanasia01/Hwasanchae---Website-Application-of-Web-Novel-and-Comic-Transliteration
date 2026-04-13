@@ -1,0 +1,121 @@
+@use "../../../../../variables" as *;
+
+.sixthContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+
+    &__donateList {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+}
+
+.sixthContentLoad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+
+    &__donateList {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+
+        &__titleSpace {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: flex-start;
+            width: 30%;
+
+            &__icon {
+                position: relative; 
+                overflow: hidden;
+                display: flex;
+                width: 30px;
+                height: 30px !important;
+                background-color: $loading-background;
+                border-radius: 4px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    transform: translateX(-100%);
+                    background: linear-gradient(
+                        90deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.5),
+                        transparent
+                    );
+                    animation: shimmer 1.5s infinite;
+                }
+            }
+
+            &__title {
+                position: relative; 
+                overflow: hidden;
+                display: flex;
+                width: 120px;
+                height: 30px !important;
+                background-color: $loading-background;
+                border-radius: 4px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    transform: translateX(-100%);
+                    background: linear-gradient(
+                        90deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.5),
+                        transparent
+                    );
+                    animation: shimmer 1.5s infinite;
+                }
+            }
+        }
+
+        &__inputSpace {
+            position: relative; 
+            overflow: hidden;
+            display: flex;
+            width: 70%;
+            height: 30px !important;
+            background-color: $loading-background;
+            border-radius: 4px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                transform: translateX(-100%);
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.5),
+                    transparent
+                );
+                animation: shimmer 1.5s infinite;
+            }
+        }
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

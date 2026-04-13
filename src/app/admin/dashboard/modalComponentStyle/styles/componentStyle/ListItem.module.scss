@@ -1,0 +1,42 @@
+.listItem {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+
+    &__profileContainer {
+        color: white;
+        border: none;
+        display: grid;
+        place-items: center;
+        position: relative;
+        width: 40px; 
+        height: 40px; 
+        border-radius: 50%;
+        cursor: pointer;
+
+        &__profile {
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    &__username {
+        flex: 1;
+        font-size: 12pt;
+        font-weight: 600;
+        color: #000000;
+
+        background-color: #FFFFFF;
+        width: 100%;
+        padding: 4px 10px;
+        border-radius: 4px;
+    }
+
+    &__remove {
+        align-items: center;
+        cursor: pointer;
+    }
+}

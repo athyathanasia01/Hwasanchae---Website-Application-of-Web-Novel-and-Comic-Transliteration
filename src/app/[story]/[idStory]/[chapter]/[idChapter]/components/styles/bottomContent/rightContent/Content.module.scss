@@ -1,0 +1,8 @@
+.rightContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 30% !important;
+    height: calc(100vh - 100px);
+}

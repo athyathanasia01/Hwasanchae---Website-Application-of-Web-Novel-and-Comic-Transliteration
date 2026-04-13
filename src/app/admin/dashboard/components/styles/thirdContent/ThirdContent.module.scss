@@ -1,0 +1,97 @@
+@use "../../../../../variables" as *;
+
+.thirdContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+
+    &__unorderList {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    &__more {
+        align-self: flex-end;
+        font-size: 12pt;
+        font-weight: 400;
+        color: #95a1e6;
+        font-style: italic;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &__unorderListLoad {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 3px;
+
+        &__quoteContainerLoad {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 12px;
+
+            &__quote {
+                position: relative; 
+                overflow: hidden;
+                display: flex;
+                align-self: flex-start;
+                width: 100%;
+                height: 20px !important;
+                background-color: $loading-background;
+                border-radius: 4px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    transform: translateX(-100%);
+                    background: linear-gradient(
+                        90deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.5),
+                        transparent
+                    );
+                    animation: shimmer 1.5s infinite;
+                }
+            }
+
+            &__name {
+                position: relative; 
+                overflow: hidden;
+                display: flex;
+                align-self: flex-end;
+                width: 10%;
+                height: 20px !important;
+                background-color: $loading-background;
+                border-radius: 4px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    transform: translateX(-100%);
+                    background: linear-gradient(
+                        90deg,
+                        transparent,
+                        rgba(255, 255, 255, 0.5),
+                        transparent
+                    );
+                    animation: shimmer 1.5s infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

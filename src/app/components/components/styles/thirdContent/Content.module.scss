@@ -1,0 +1,129 @@
+.carouselContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-inline: 20px;
+    margin-block: 30px;
+    width: 100%;
+    
+    &__title {
+        font-size: 20pt;
+        font-weight: 700;
+    }
+
+    &__swiper {
+        width: 100%;
+        overflow: visible; 
+
+        &__slider {
+            display: flex;
+            width: 200px;
+            justify-content: center;
+
+            &__cardContainer {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+
+                width: 200px;
+                height: 300px;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+
+                &__coverWrapper {
+                    width: 180px;
+                    height: 240px;
+                    position: relative;
+
+                    &__cover {
+                        object-fit: cover;
+                        border-radius: 4px;
+                    }
+                }
+
+                &__detail {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    justify-content: center;
+                    align-items: center;
+                    width: 180px;
+
+                    &__title {
+                        width: 180px;
+                        font-size: 13pt;
+                        font-weight: 600;
+                        text-align: center;
+
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+
+                    &__last {
+                        width: 180px;
+                        font-size: 11pt;
+                        font-weight: 400;
+                        text-align: center;
+
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+
+    &--hidden {
+        display: none !important;
+    }
+}
+
+/* Spotlight glow */
+.swiper-slide-active .card {
+    transform: scale(1.25);
+    position: relative;
+
+    background: radial-gradient(circle, #ff4da6, transparent 70%);
+}
+
+.swiper-slide-active .card::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border-radius: 24px;
+    background: radial-gradient(circle, #ff4da6, transparent 70%);
+    z-index: -1;
+}
+
+/* Default: SEMUA subtitle disembunyikan */
+.subtitle {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    color: white;
+    margin-block: 20px;
+    font-size: 16px;
+}
+
+.subtitle span {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* HANYA slide aktif yang menampilkan subtitle */
+:global(.swiper-slide-active) .subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+:global(.swiper-slide-active) {
+    overflow: visible;
+}

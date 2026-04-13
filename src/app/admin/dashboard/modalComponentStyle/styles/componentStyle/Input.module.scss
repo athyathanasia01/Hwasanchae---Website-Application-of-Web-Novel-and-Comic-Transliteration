@@ -1,0 +1,32 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: flex-start;
+
+    &__title {
+        font-size: 10pt;
+        font-weight: 400;
+        color: #FFFFFF;
+    }
+
+    &__input {
+        padding: 8px 12px;
+        background-color: #FFFFFF;
+        color: #000000;
+        border-radius: 4px;
+        font-size: 11pt;
+        font-weight: 500;
+        width: 100%;
+    }
+}
+
+.input {
+    padding: 8px 12px;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 4px;
+    font-size: 11pt;
+    font-weight: 500;
+    width: 100%;
+}

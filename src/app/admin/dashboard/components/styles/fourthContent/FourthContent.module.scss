@@ -1,0 +1,79 @@
+@use "../../../../../variables" as *;
+
+.fourthContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.fourthContentLoad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+
+    &__listItemLoad {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+
+        &__profileContainer {
+            position: relative; 
+            overflow: hidden;
+            border: none;
+            display: grid;
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%;
+            background-color: $loading-background;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                transform: translateX(-100%);
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.5),
+                    transparent
+                );
+                animation: shimmer 1.5s infinite;
+            }
+        }
+
+        &__username {
+            position: relative; 
+            overflow: hidden;
+            display: flex;
+            height: 20px !important;
+            width: 300px;
+            background-color: $loading-background;
+            border-radius: 4px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                transform: translateX(-100%);
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.5),
+                    transparent
+                );
+                animation: shimmer 1.5s infinite;
+            }
+        }
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+body {
+  --tt-toolbar-height: 44px;
+  --tt-theme-text: var(--tt-gray-light-900);
+
+  .dark & {
+    --tt-theme-text: var(--tt-gray-dark-900);
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  // color: var(--tt-theme-text);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: contain !important;
+
+  --editor-bg: #f1dde6;
+  --editor-text: #111111;
+  --editor-block: #b3ceec;
+
+  .dark & {
+    // --editor-bg: #3f3f3f;
+    --editor-bg: #1D1C21;
+    --editor-text: #ffffff;
+    --editor-block: #67707a;
+  }
+}
+
+.reader-toolbar{
+  position: sticky;
+  top: 0;
+  background: var(--editor-bg);
+  padding: 8px 12px;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  gap: 12px;
+}
+
+html,
+body {
+  overscroll-behavior-x: none;
+}
+
+html,
+body,
+#root,
+#app {
+  height: 100%;
+  background-color: var(--tt-bg-color);
+}
+
+/* Selection warna saat text diblock */
+::selection {
+  background: var(--editor-block) !important;
+  color: var(--editor-text);
+}
+
+/* Untuk Firefox */
+::-moz-selection {
+  background: var(--editor-block) !important;
+  color: var(--editor-text);
+}
+
+::-webkit-scrollbar {
+  // width: 0.25rem;
+  display: none;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--tt-scrollbar-color) transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--tt-scrollbar-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tiptap.ProseMirror {
+  font-family: "DM Sans", sans-serif;
+}
+
+.simple-editor-wrapper {
+  height: calc(100vh - 115px);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: var(--editor-bg);
+  color: var(--editor-text);
+  border-radius: 4px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.simple-editor-content {
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.fontSelector {
+  display: block;
+  align-self: flex-end;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 0.4px solid #505050;
+  font-size: 14px;
+
+  :focus {
+    border: 0.4px solid #000000;
+  }
+}
+
+.font-inter .tiptap.ProseMirror {
+  font-family: "Inter", serif;
+}
+
+.font-lora .tiptap.ProseMirror {
+  font-family: "Lora", serif;
+}
+
+.font-merriweather .tiptap.ProseMirror {
+  font-family: "Merriweather", serif;
+}
+
+.font-source-sans .tiptap.ProseMirror {
+  font-family: "Source Sans 3", serif;
+}
+
+.font-nunito .tiptap.ProseMirror {
+  font-family: "Nunito", serif;
+}
+
+.font-roboto .tiptap.ProseMirror {
+  font-family: "Roboto", serif;
+}
+
+.font-poppins .tiptap.ProseMirror {
+  font-family: "Poppins", serif;
+}
+
+.simple-editor-wrapper .tiptap-toolbar,
+.simple-editor-wrapper .tiptap-toolbar-inner {
+  background-color: var(--editor-bg) !important;
+  z-index: 50;
+}
+
+.tiptap-popover,
+.tiptap-bubble-menu,
+.tiptap-link-menu {
+  background-color: var(--editor-bg) !important;
+  color: var(--editor-text) !important;
+  border: 1px solid #e5e5e5;
+}
+
+.tiptap-popover input,
+.tiptap-bubble-menu input,
+.tiptap-link-menu input {
+  background-color: var(--editor-bg) !important;
+  color: var(--editor-text) !important;
+}
+
+.tiptap-popover svg,
+.tiptap-bubble-menu svg,
+.tiptap-link-menu svg {
+  color: var(--editor-text) !important;
+}
+
+.simple-editor-content .tiptap.ProseMirror.simple-editor {
+  flex: 1;
+  padding: 3rem 3rem 30vh;
+  color: var(--editor-text);
+}
+
+@media screen and (max-width: 480px) {
+  .simple-editor-content .tiptap.ProseMirror.simple-editor {
+    padding: 1rem 1.5rem 30vh;
+    color: var(--editor-text);
+  }
+}

@@ -1,0 +1,42 @@
+.topContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__status {
+        font-size: 12pt;
+        font-weight: 600;
+        color: #FFFFFF;
+        background-color: #949494be;
+        padding: 4px 12px;
+        border-radius: 20px;
+        width: fit-content;
+    }
+
+    &__dataFirst {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        &__title {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #FFFFFF;
+            align-self: flex-start;
+        }
+
+        &__vote {
+            display: flex;
+            align-self: flex-end;
+            gap: 12px;
+
+            &__rate {
+                font-size: 12pt;
+                font-weight: 500;
+                color: #FFFFFF;
+                margin-bottom: 4px;
+            }
+        }
+    }
+}

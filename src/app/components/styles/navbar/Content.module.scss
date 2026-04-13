@@ -1,0 +1,13 @@
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-image: url('/image/navbar.png');
+    height: 100px;
+    width: 100%;
+    object-fit: fill;
+
+    z-index: 30;
+}

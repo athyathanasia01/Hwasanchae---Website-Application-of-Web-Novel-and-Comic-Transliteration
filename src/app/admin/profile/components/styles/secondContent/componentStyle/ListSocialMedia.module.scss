@@ -1,0 +1,29 @@
+.mediaContent {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+
+    &__icon {
+        object-fit: cover;
+    }
+
+    &__input {
+        flex: 1;
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 12pt;
+        font-weight: 500;
+        padding: 7px 10px;
+
+        border-radius: 4px;
+        box-shadow: none;
+    }
+
+    &__data {
+        font-size: 12pt;
+        font-weight: 500;
+        color: #FFFFFF;
+    }
+}

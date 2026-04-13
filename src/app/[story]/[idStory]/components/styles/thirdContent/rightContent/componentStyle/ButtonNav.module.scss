@@ -1,0 +1,35 @@
+.button {
+    flex: 1;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f378a9e7;
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding: 7px 12px;
+    gap: 3px;
+    cursor: pointer;
+
+    &__nav {
+        font-size: 9pt;
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    &__title {
+        font-size: 10pt;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    &:hover {
+        background-color: #F378A9;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
+        transform: translate(0.4%);
+    }
+}

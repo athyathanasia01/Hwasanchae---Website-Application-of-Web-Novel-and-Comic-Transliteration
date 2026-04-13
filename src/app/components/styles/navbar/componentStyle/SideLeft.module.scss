@@ -1,0 +1,17 @@
+.leftNav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+
+    &__logoWeb {
+        position: relative;
+        width: 137px;
+        height: 90px;
+
+        &__logo {
+            object-fit: cover;
+            cursor: pointer;
+        }
+    }
+}

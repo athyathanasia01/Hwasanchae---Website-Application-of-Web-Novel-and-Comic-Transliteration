@@ -1,0 +1,19 @@
+.bottomContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 100%;
+    justify-self: last baseline;
+    align-items: center;
+    font-size: 9pt;
+    color: #FFFFFF;
+
+    &__topTitle {
+        font-weight: 600;
+    }
+
+    &__bottomTitle {
+        font-weight: 400;
+        font-style: italic;
+    }
+}

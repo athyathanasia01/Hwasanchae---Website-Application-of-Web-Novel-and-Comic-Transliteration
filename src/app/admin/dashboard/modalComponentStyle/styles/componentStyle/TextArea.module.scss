@@ -1,0 +1,23 @@
+.textArea {
+    width: 100%;
+    align-items: flex-start;
+    padding: 4px 12px;
+    background-color: #FFFFFF;
+    color: #2B2B2B;
+    border-radius: 4px;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        scrollbar-width: none;
+    }
+
+    &--aboutme {
+        height: 300px;
+    }
+
+    &--quote {
+        height: 120px;
+    }
+}

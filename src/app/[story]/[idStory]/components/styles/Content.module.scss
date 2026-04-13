@@ -1,0 +1,39 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 30px;
+    gap: 8px;
+    
+    justify-content: center;
+    align-items: flex-start;
+
+    &__navigationTop {
+        display: flex;
+        gap: 8px;
+        justify-self: flex-start;
+        align-items: center;
+        font-size: 14pt;
+
+        &__navHome {
+            font-weight: 800;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        &__navCurrent {
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+    }
+
+    &__dividerHorizontal {
+        display: flex;
+        width: 92%;
+        height: 0.8px;
+        color: #FFFFFF;
+        background-color: #FFFFFF;
+        margin-block: 70px;
+        align-self: center;
+    }
+}

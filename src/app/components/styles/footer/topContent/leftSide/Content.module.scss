@@ -1,0 +1,17 @@
+.leftSide {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    &__logoImage {
+        position: relative;
+        align-self: center;
+        width: 200px;
+        height: 120px;
+
+        &__logo {
+            object-fit: cover;
+        }
+    }
+}

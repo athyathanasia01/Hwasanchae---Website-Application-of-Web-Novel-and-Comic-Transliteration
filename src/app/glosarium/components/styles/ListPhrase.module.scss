@@ -1,0 +1,19 @@
+.listPhrase {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+
+    &__phrase {
+        font-size: 15pt;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
+
+    &__meaning {
+        font-size: 12pt;
+        font-weight: 400;
+        color: #FFFFFF;
+    }
+}

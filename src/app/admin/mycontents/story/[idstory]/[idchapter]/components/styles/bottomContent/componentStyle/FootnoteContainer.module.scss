@@ -1,0 +1,68 @@
+.footnoteContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 10px;
+    gap: 10px;
+    height: calc(100vh - 115px);
+    width: 30%;
+
+    &__title {
+        font-size: 14pt;
+        font-weight: 700;
+        color: #2B2B2B;
+    }
+
+    &__mapFootnote {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        overflow-y: auto;
+        padding-bottom: 68px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__footnoteBlur {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+
+        background-image: url('/image/backdrop_button.png');
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        z-index: 80;
+
+        &__buttonAddFootnote {
+            width: 84%;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            padding: 7px 10px;
+            align-self: center;
+            margin-top: 8px;
+            
+            z-index: 100;
+
+            &:hover {
+                box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
+                transform: translate(1%);
+            }
+        }
+    }
+}

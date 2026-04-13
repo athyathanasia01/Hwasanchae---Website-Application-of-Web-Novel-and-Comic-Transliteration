@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+
+    &__topWrapper {
+        display: flex;
+        height: 15px;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 21px;
+        border-bottom: 1.2px solid #FFFFFF;
+
+        &__title {
+            font-size: 13pt;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-left: 20px;
+        }
+
+        &__linkEdit {
+            font-size: 12pt;
+            font-weight: 500;
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+    }
+}

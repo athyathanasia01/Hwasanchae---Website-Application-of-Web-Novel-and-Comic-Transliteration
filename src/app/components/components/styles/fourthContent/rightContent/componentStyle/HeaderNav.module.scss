@@ -1,0 +1,31 @@
+.headerNav {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &__selectionContainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #000000;
+
+        & > select {
+            background-color: #FFFFFF;
+            border-radius: 4px;
+            width: 100%;
+            padding: 7px 12px;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        border-radius: 20px;
+        padding: 7px 12px;
+
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+}

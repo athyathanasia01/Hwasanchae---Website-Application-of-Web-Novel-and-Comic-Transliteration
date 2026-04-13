@@ -1,0 +1,16 @@
+.modalFootnoteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    &__label {
+        font-size: 14pt;
+        font-weight: 800;
+    }
+
+    &__content {
+        font-size: 12pt;
+        font-weight: 500;
+    }
+}

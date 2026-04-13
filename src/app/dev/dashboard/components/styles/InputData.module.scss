@@ -1,0 +1,24 @@
+.inputData {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+
+    &__title {
+        font-size: 11pt;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+
+    &__input {
+        width: 100%;
+        font-size: 12pt;
+        font-weight: 500;
+        color: #000000;
+        background-color: #FFFFFF;
+        border-radius: 4px;
+        padding: 3px 10px;
+    }
+}

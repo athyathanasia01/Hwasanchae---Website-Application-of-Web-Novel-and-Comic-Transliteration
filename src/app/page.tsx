@@ -1,65 +1,127 @@
-import Image from "next/image";
+// technical
+import { ReactNode } from "react";
 
-export default function Home() {
+// components
+import Content from "./components/components/content";
+
+// template
+import { MyStory } from "./template/story/story"; // ✅ 
+import { getAllDataInfo } from "./template/uiHelper"; // ✅
+import { NewChapterItem } from "./template/story/chapter"; // ✅
+import { HwasanchaeData } from "./template/hwasanchae/hwasanchae"; // ✅ 
+import { SocialMedia } from "./template/hwasanchae/socialmedia"; // ✅
+import { Donation } from "./template/hwasanchae/donation"; // ✅
+
+// style 
+import style from "./components/components/styles/Content.module.scss";
+
+async function getFyiList() {
+    try {
+        const baseUrl = process.env.BASE_URL!;
+        const response = await fetch(`${baseUrl}/api/hwasanchae/fyiList`, {
+          next: { tags: [`hwasanchae`] }
+        });
+        const responseData = await response.json();
+        const data = responseData.data as string[];
+
+        return data;
+    } catch (error) {
+        console.log(`Error get fyi list data: ${error}`);
+
+        return [];
+    }
+}
+
+async function getStoryList() {
+  try {
+    const baseUrl = process.env.BASE_URL!;
+    const response = await fetch(`${baseUrl}/api/story`, { 
+      next: { tags: [`story`] } 
+    });
+    const responseData = await response.json();
+    let storyList = responseData.data as MyStory[];
+    storyList = storyList.filter(story => story.status !== 'Canceled / Discontinue' && story.status !== 'Drafted');
+
+    if (storyList.length === 0) return [];
+
+    const newStoryList = await Promise.all(
+      storyList.map(async (story) => {
+        const detailStory = await getAllDataInfo(story.id, baseUrl);
+        const responseChapter = await fetch(`${baseUrl}/api/chapter?idStory=${story.id}`, { 
+          next: { tags: [`story`, `story:${story.id}`, `chapter`] } 
+        });
+        const responseChapterData = await responseChapter.json();
+        const chapterData = responseChapterData.data as NewChapterItem[];
+
+        if (detailStory) {
+          return {
+            ...story,
+            chapters: chapterData,
+            ...detailStory
+          }
+        } else {
+          return {
+            ...story,
+            chapters: [],
+            lastUpdate: '',
+            lastTitle: '',
+            vote: 0,
+            read: 0,
+            comments: 0
+          }
+        }
+      })
+    );
+
+    return newStoryList;
+  } catch (error) {
+    console.log(`Error get list story: ${error}`);
+
+    return [];
+  }
+}
+
+async function getHwasanchae() {
+    try {
+        const baseUrl = process.env.BASE_URL!;
+        const response = await fetch(`${baseUrl}/api/hwasanchae`, {
+            next: { tags: [`hwasanchae`] }
+        });
+        const responseData = await response.json();
+        const data = responseData.data as HwasanchaeData;
+
+        return data;
+    } catch (error) {
+        alert(`Error: ${error}`);
+        console.log(`Error get hwasanchae data: ${error}`);
+
+        return null;
+    }
+}
+
+export default async function Home({ children }: { children: ReactNode | null | undefined }) {
+  const fyiList = await getFyiList();
+  const storyList = await getStoryList();
+  const hwasanchaeData = await getHwasanchae();
+  let donationList: Donation[] = [];
+  let communityList: SocialMedia[] = [];
+  let randomQuote = { person: "", quote: "" };
+
+  if (hwasanchaeData) {
+    donationList = hwasanchaeData.donationList.filter(donate => donate.link);
+    communityList = hwasanchaeData.communityList.filter(community => community.link);
+    randomQuote = [...hwasanchaeData.quoteList]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 1)[0] ?? { person: "", quote: "" };
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      <div className={style.content}>
+        {children ?
+          children
+        :
+          <Content fyiList={fyiList} storyList={storyList} communityList={communityList} donationList={donationList} randomQuote={randomQuote} />
+        }
+      </div>
   );
 }

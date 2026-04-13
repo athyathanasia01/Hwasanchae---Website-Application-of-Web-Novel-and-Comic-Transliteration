@@ -1,0 +1,54 @@
+.containerStory {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 250px;
+    cursor: pointer;
+
+    &__imageContainer {
+        position: relative;
+        width: 140px;
+        height: 200px;
+
+        &__image {
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    }
+
+    &__detailContainer {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+        justify-content: center;
+
+        &__title {
+            width: 150px;
+            font-size: 10pt;
+            font-weight: 600;
+            text-align: center;
+            color: #FFFFFF;
+            
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &__voteContainer {
+            display: flex;
+            gap: 4px;
+            align-self: center;
+
+            &__vote {
+                font-size: 10pt;
+                font-weight: 400;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

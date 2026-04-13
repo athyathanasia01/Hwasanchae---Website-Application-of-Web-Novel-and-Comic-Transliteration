@@ -1,0 +1,13 @@
+.imageWallpaper {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    overflow: hidden;
+
+    height: 70%;
+
+    img {
+        object-fit: cover;
+        display: block;
+    }
+}

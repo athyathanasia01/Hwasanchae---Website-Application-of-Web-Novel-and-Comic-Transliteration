@@ -1,0 +1,23 @@
+.quoteContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    &__quote {
+        font-size: 12pt;
+        font-weight: 500;
+        align-self: flex-start;
+        color: #FFFFFF;
+        font-style: italic;
+    }
+
+    &__name {
+        font-size: 10pt;
+        font-weight: 700;
+        align-self: flex-end;
+        color: #FFFFFF;
+    }
+}

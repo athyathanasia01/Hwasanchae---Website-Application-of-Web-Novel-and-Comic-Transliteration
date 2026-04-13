@@ -1,0 +1,17 @@
+@keyframes floatFancy {
+    0%, 100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.03) rotate(3deg);
+    }
+}
+
+.floatLoading {
+    display: flex;
+    justify-content: center;
+    min-height: 200px;
+    align-items: center;
+    animation: floatFancy 1.8s ease-in-out infinite;
+    will-change: transform;
+}

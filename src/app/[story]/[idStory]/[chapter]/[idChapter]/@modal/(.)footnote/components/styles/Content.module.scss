@@ -1,0 +1,35 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    color: #2b2b2b;
+    width: 90%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+
+    &__notFound {
+        font-size: 12pt;
+        font-weight: 500;
+        color: #000000;
+        font-style: italic;
+    }
+
+    &__btnClose {
+        background-color: #000000;
+        color: #FFFFFF;
+        padding: 3px 7px;
+        border-radius: 4px;
+        align-self: flex-end;
+
+        cursor: pointer;
+
+        &:hover {
+            transform: translate(0.8%);
+            box-shadow: 0 1px 8px rgba(0, 0, 0, .1);
+        }
+    }
+}

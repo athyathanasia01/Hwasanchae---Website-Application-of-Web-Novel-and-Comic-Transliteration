@@ -1,0 +1,17 @@
+.chapterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    gap: 12px;
+
+    &__horizontalLine {
+        display: flex;
+        width: 88%;
+        height: 1px;
+        border-radius: 10px;
+        color: #ffffffd0;
+    }
+}

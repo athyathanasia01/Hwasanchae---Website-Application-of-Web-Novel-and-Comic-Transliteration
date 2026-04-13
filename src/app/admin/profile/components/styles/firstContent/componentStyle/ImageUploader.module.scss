@@ -1,0 +1,66 @@
+@use "../../../../../../variables" as *;
+
+.avatarWrapper { 
+    position: relative; 
+    width: 280px; 
+    height: 280px; 
+    
+    &__avatar { 
+        object-fit: cover; 
+        border-radius: 50%; 
+        border: 1px solid rgba(211, 211, 211, 0.6); 
+    } 
+        
+    &__editButton { 
+        position: absolute; 
+        bottom: 4px; 
+        left: 84%; 
+        transform: translateX(-50%); 
+        width: 48px; 
+        height: 48px; 
+        border-radius: 50%; 
+        border: none; 
+        background: rgba(216, 216, 216, 0.93); 
+        color: #424242; 
+        font-size: large; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        cursor: pointer; 
+            
+        &:hover { 
+            background: rgba(0, 0, 0, 0.8); 
+            color: #dfdfdf; 
+            box-shadow: 1px 0 10px rgba(0, 0, 0, 0.2); 
+        } 
+    }
+}
+
+.avatarWrapperLoad {
+    overflow: hidden;
+    position: relative; 
+    width: 280px; 
+    height: 280px; 
+    border-radius: 50%;
+    background-color: $loading-background;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent
+        );
+        animation: shimmer 1.5s infinite;
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

@@ -1,0 +1,83 @@
+@use "../../../../../variables" as *;
+
+.fifthContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.fifthContentLoad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    &__listItemLoad {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        height: 32px;
+        width: 100%;
+        margin-top: 3px;
+        margin-bottom: 12px;
+
+        &__icon {
+            position: relative; 
+            overflow: hidden;
+            border: none;
+            display: grid;
+            width: 32px; 
+            height: 32px; 
+            border-radius: 50%;
+            background-color: $loading-background;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                transform: translateX(-100%);
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.5),
+                    transparent
+                );
+                animation: shimmer 1.5s infinite;
+            }
+        }
+
+        &__input {
+            flex: 1;
+            position: relative; 
+            overflow: hidden;
+            display: flex;
+            height: 30px !important;
+            background-color: $loading-background;
+            border-radius: 4px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                transform: translateX(-100%);
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.5),
+                    transparent
+                );
+                animation: shimmer 1.5s infinite;
+            }
+        }
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

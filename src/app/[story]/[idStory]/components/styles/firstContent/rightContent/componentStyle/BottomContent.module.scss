@@ -1,0 +1,15 @@
+.bottomContent {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    &__list {
+        text-align: center;
+        font-size: 11pt;
+        font-weight: 400;
+        color: #FFFFFF;
+        background-color: #949494be;
+        padding: 4px 12px;
+        border-radius: 20px;
+    }
+}

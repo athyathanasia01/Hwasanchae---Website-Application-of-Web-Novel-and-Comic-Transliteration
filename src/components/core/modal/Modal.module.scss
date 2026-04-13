@@ -1,0 +1,17 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(12px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 90%;
+        overflow: auto;
+        filter: blur(0px);
+    }
+}

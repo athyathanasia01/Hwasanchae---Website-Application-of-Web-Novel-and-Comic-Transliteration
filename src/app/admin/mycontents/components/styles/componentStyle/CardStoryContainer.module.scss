@@ -1,0 +1,308 @@
+@use "../../../../../variables" as *;
+
+.cardWrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-radius: 4px;
+            
+    color: #FFFFFF;
+    background-color: #303030;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &__imageWrapper {
+        position: relative;
+        width: 150px;
+        height: 210px;
+
+        &__image {
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    }
+
+    &__imageWrapperLoad {
+        overflow: hidden;
+        position: relative;
+        width: 150px;
+        height: 210px;
+        background-color: $loading-background;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-100%);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.5),
+                transparent
+            );
+            animation: shimmer 1.5s infinite;
+        }
+    }
+
+    &__detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 12px;
+        padding-left: 10px;
+
+        &__top {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            &__titleContainerLoad {
+                display: grid;
+                grid-template-columns: 4fr 1.4fr;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 4px;
+
+                &__title {
+                    width: 120px;
+                    height: 20px;
+                    border-radius: 4px;
+                    background-color: $loading-background;
+                    position: relative;
+                    overflow: hidden;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        transform: translateX(-100%);
+                        background: linear-gradient(
+                            90deg,
+                            transparent,
+                            rgba(255, 255, 255, 0.5),
+                            transparent
+                        );
+                        animation: shimmer 1.5s infinite;
+                    }
+                }
+
+                &__status {
+                    width: 60px;
+                    height: 20px;
+                    border-radius: 20px;
+                    background-color: $loading-background;
+                    position: relative;
+                    overflow: hidden;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        transform: translateX(-100%);
+                        background: linear-gradient(
+                            90deg,
+                            transparent,
+                            rgba(255, 255, 255, 0.5),
+                            transparent
+                        );
+                        animation: shimmer 1.5s infinite;
+                    }
+                }
+            }
+
+            &__titleContainer {
+                display: grid;
+                grid-template-columns: 4fr 1.4fr;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 4px;
+                        
+                &__title {
+                    font-size: 14pt;
+                    font-weight: 700;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+                // On Going #302dcacb blue
+                &__statusOG {
+                    background-color: #302dcacb;
+                    color: #ffffff;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+
+                    font-size: 10pt;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                // Hiatus #e2324fcb red
+                &__statusHT {
+                    background-color: #e2324fcb;
+                    color: #ffffff;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+
+                    font-size: 10pt;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                // Completed #38cf33cb green
+                &__statusCP {
+                    background-color: #38cf33cb;
+                    color: #ffffff;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+
+                    font-size: 10pt;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                // Canceled #bbc719cb yellow
+                &__statusCC {
+                    background-color: #bbc719cb;
+                    color: #ffffff;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+
+                    font-size: 10pt;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                // Drafted #555555cb grey
+                &__statusDF {
+                    background-color: #555555cb;
+                    color: #ffffff;
+                    padding: 4px 12px;
+                    border-radius: 20px;
+
+                    font-size: 10pt;
+                    font-weight: 600;
+                    text-align: center;
+                }
+            }
+
+            &__infoFirst {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 23px;
+
+                &__languageTitle {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 4px;
+
+                    font-size: 10pt;
+                    font-weight: 500;
+                }
+
+                &__authorTitle {
+                    display: flex;
+                    justify-content: flex-start;
+                    gap: 4px;
+
+                    font-size: 10pt;
+                    font-weight: 500;
+                }
+            }
+
+            &__infoSecond {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                align-items: flex-start;
+                margin-top: 14px;
+
+                &__containerInfo {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 5px;
+                    width: 100%;
+
+                    &__title {
+                        font-size: 10pt;
+                        font-weight: 700;
+                        font-style: italic;
+                        width: 28%;
+                    }
+
+                    &__info {
+                        font-size: 10pt;
+                        font-weight: 400;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 72%;
+                    }
+
+                    &__last {
+                        font-size: 10pt;
+                        font-weight: 800;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        &__bottom {
+            display: flex;
+            gap: 33px;
+            justify-content: flex-start;
+            align-items: center;
+
+            &__groupNav {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                &__nav {
+                    font-size: 10pt;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #E54384;
+        color: #FFFFFF;
+        transform: translate(0.4%);
+    }
+
+    &__dataDetailLoad {
+        width: 40px;
+        height: 20px;
+        border-radius: 4px;
+        background-color: $loading-background;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-100%);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.5),
+                transparent
+            );
+            animation: shimmer 1.5s infinite;
+        }
+    }
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

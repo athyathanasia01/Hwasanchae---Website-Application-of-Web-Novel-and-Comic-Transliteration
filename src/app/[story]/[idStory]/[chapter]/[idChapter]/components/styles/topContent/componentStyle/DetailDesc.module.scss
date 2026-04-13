@@ -1,0 +1,21 @@
+.detail {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &__inside {
+        display: flex;
+        gap: 12px;
+
+        &__text {
+            font-size: 12pt;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        &__group {
+            display: flex;
+            gap: 4px;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end;
+    gap: 4px;
+
+    transform: translateY(120%);
+
+    &__title {
+        font-size: 11pt;
+        font-weight: 600;
+        color: #ffffff;
+
+        text-align: right;
+    }
+
+    &__unorderList {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+
+        &__imageLogo {
+            object-fit: cover;
+        }
+    }
+}
