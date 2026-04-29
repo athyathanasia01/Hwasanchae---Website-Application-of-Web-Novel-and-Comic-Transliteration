@@ -69,5 +69,34 @@ export const FONT_OPTIONS = [
     { label: "Poppins", value: "poppins" }
 ]
 
-// unused
-// export type ChapterStatus = "published" | "drafted";
+// ✅
+export const THEME_OPTIONS = [
+    { 
+        label: "General Dark", 
+        value: {
+            fontColor: "#FFFFFF",
+            backColor: "#1d1c21"
+        }
+    },
+    { 
+        label: "Gummy Dark", 
+        value: {
+            fontColor: "#b3ceec",
+            backColor: "#1d1c21"
+        }
+    },
+    { 
+        label: "General Light", 
+        value: {
+            fontColor: "#1D1C21",
+            backColor: "#FFFFFF"
+        }
+    },
+    { 
+        label: "Gummy Light", 
+        value: {
+            fontColor: "#204570",
+            backColor: "#f1dde6"
+        }
+    },
+]

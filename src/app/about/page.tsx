@@ -4,6 +4,31 @@ import { HwasanchaeData } from "../template/hwasanchae/hwasanchae";
 // components
 import Content from "./components/context";
 
+// metadata
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const data = await getHwasanchaeData();
+
+    if (data) {
+        const description = data.about;
+        return {
+            title: `About`,
+            description: `Hwasanchae — ${description}`,
+            keywords: [data.copyrightName, data.about],
+            openGraph: {
+                title: `About Hwasanchae`,
+                description: `Hwasanchae — ${description}`,
+                images: [data.profile]
+            }
+        }
+    }
+
+    return {
+        title: `About`
+    }
+}
+
 async function getHwasanchaeData() {
     try {
         const baseUrl = process.env.BASE_URL!;

@@ -61,19 +61,26 @@ export const authOptions: NextAuthOptions = {
                 token.role = user.role;
             }
 
-            if (account?.provider === 'google') {
-                const data = {
-                    email: user.email,
-                    username: user.name,
-                    profile: user.image
-                }
+            if (account?.provider === 'google' && user) {
+                try {
+                    const data = {
+                        email: user.email,
+                        username: user.name,
+                        profile: user.image
+                    };
+                    const responseLogin = await loginGoogle(data);
 
-                const responseLogin = await loginGoogle(data);
-                if (responseLogin.status === 'Success' && responseLogin.data) {
-                    const responseData = responseLogin.data;
-                    
-                    token.id = responseData.id;
-                    token.role = responseData.role;
+                    if (responseLogin.status === 'Success' && responseLogin.data) {
+                        const responseData = responseLogin.data;
+                        
+                        token.id = responseData.id;
+                        token.role = responseData.role;
+                    } else {
+                        throw new Error("Login Google failed");
+                    }
+                } catch (error) {
+                    console.error("JWT GOOGLE ERROR:", error);
+                    throw error;
                 }
             }
 

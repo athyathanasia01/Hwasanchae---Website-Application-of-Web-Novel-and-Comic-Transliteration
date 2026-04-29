@@ -25,27 +25,27 @@ export default function AdminLayoutClient({ children }: { children: React.ReactN
     const menus = menusAdmin.filter(menu => menu.navigation);
     const adminPage = menus.map((menu) => menu.href);
     
-    const { data: session, status }: { data: any, status: string } = useSession();
-    const { push } = useRouter();
+    // const { data: session, status }: { data: any, status: string } = useSession();
+    // const { push } = useRouter();
 
-    console.log(`session: `, session);
-    console.log(`status: `, status);
+    // console.log(`session: `, session);
+    // console.log(`status: `, status);
 
-    useEffect(() => {
-        if (status === 'loading') return;
+    // useEffect(() => {
+    //     if (status === 'loading') return;
 
-        if (status === 'unauthenticated' || session?.user?.role !== "admin") {
-            push('/');
-        } 
-    }, [status, session]);
+    //     if (status === 'unauthenticated' || session?.user?.role !== "admin") {
+    //         push('/');
+    //     } 
+    // }, [status, session]);
 
-    if (status === "loading") {
-        return <p>Loading...</p>;
-    }
+    // if (status === "loading") {
+    //     return <p>Loading...</p>;
+    // }
 
-    if (status === "unauthenticated" || session?.user?.role !== "admin") {
-        return null;
-    }
+    // if (status === "unauthenticated" || session?.user?.role !== "admin") {
+    //     return null;
+    // }
 
     return (
         adminPage.includes(pathName) ?

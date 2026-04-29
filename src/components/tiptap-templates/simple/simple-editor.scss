@@ -20,14 +20,17 @@ body {
   overscroll-behavior-x: contain !important;
 
   --editor-bg: #f1dde6;
-  --editor-text: #111111;
+  --editor-text: #204570;
   --editor-block: #b3ceec;
+  --editor-bg-fontopt: #f1dde6;
+  --editor-text-fontopt: #204570;
 
   .dark & {
-    // --editor-bg: #3f3f3f;
     --editor-bg: #1D1C21;
-    --editor-text: #ffffff;
+    --editor-text: #b3ceec;
     --editor-block: #67707a;
+    --editor-bg-fontopt: #1D1C21;
+    --editor-text-fontopt: #b3ceec;
   }
 }
 
@@ -39,8 +42,8 @@ body {
   z-index: 10;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
-
   gap: 12px;
 }
 
@@ -115,17 +118,24 @@ body,
   flex: 1;
 }
 
-.fontSelector {
+.fontSelector, .themeSelector {
   display: block;
   align-self: flex-end;
   padding: 4px 8px;
   border-radius: 6px;
   border: 0.4px solid #505050;
   font-size: 14px;
+  // background-color: var(--editor-bg-fontopt);
+  // color: var(--editor-text-fontopt);
 
   :focus {
     border: 0.4px solid #000000;
   }
+
+  // option {
+  //   background-color: var(--editor-bg-fontopt);
+  //   color: var(--editor-text-fontopt);
+  // }
 }
 
 .font-inter .tiptap.ProseMirror {

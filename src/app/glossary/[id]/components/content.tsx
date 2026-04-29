@@ -59,7 +59,7 @@ export default function Content({ title, glosarium }: Props) {
 
     return (
         <div className={style.contentGlosarium}>
-            <p className={style.contentGlosarium__title}>Glosarium</p>
+            <p className={style.contentGlosarium__title}>Glossary</p>
             <div className={style.contentGlosarium__searchNav}>
                 <span className={style.contentGlosarium__searchNav__title} onClick={handleBack}>{title}</span>
                 <div className={style.searchWrapper}>

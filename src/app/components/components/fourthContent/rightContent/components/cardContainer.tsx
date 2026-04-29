@@ -1,15 +1,11 @@
 // technical
 import Image from "next/image"
 
-// helper
-import { formatNumber } from "@hwasanchae/app/template/serverHelper"; // ✅ 
-
 // template
 import { Tag } from "@hwasanchae/app/template/story/story"; // ✅ 
 
 // style
 import style from "../../../styles/fourthContent/rightContent/componentStyle/CardContainer.module.scss";
-import { read } from "fs";
 
 type Props = {
     image: string; 

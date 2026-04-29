@@ -56,16 +56,20 @@ export default function Content({ storyList }: Props) {
                         return (
                             <li key={bookmark.id}>
                                 <CardContainer 
-                                    image={bookmark.coverImage ? bookmark.coverImage.url : '/image/image_cover.jpg'} 
-                                    title={bookmark.title} 
-                                    writer={bookmark.writer} 
-                                    translator={bookmark.translator.name} 
-                                    like={bookmark.vote} 
-                                    isBookmarked={bookmark.isBookmark} 
-                                    tags={selectedTags} 
-                                    summary={bookmark.summary} 
-                                    handleOnClickBookmark={() => handleOnClickBookmark(bookmark.id)} 
+                                    image={bookmark.coverImage ? bookmark.coverImage.url : '/image/image_cover.jpg'}
+                                    title={bookmark.title}
+                                    writer={bookmark.writer}
+                                    translator={bookmark.translator.name}
+                                    like={bookmark.vote}
+                                    isBookmarked={bookmark.isBookmark}
+                                    tags={selectedTags}
+                                    summary={bookmark.summary}
+                                    handleOnClickBookmark={() => handleOnClickBookmark(bookmark.id)}
                                     handleToDetail={() => handleToDetail(bookmark.title, bookmark.id)} 
+                                    translatedLanguage={bookmark.translatedLanguage} 
+                                    status={bookmark.status} 
+                                    read={bookmark.read} 
+                                    comment={bookmark.comments}                                
                                 />
                             </li>
                         )

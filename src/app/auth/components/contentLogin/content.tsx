@@ -2,7 +2,7 @@
 
 // technical
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 
 // components
@@ -18,8 +18,8 @@ export default function ContentLogin() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
-    // const params = useSearchParams();
-    // const callbackUrl = params.get('callbackUrl') || '/';
+    const params = useSearchParams();
+    const callbackUrl = params.get('callbackUrl') || '/auth/login';
 
     const { push } = useRouter();
 
@@ -29,6 +29,8 @@ export default function ContentLogin() {
         if (status === 'authenticated') {
             if (session?.user?.role === 'admin') {
                 push('/admin/dashboard');
+            } else if (session?.user?.role === 'developer') {
+                push('/dev/dashboard');
             } else {
                 push('/');
             }
@@ -45,16 +47,30 @@ export default function ContentLogin() {
 
     async function handleOnPressButton(e: any) {
         e.preventDefault();
-        await signIn('credentials', {
-            redirect: false,
-            email: email,
-            password: password
-        });
+        try {
+            const response = await signIn("credentials", {
+                redirect: false,
+                email: email,
+                password: password,
+                // callbackUrl: callbackUrl
+            });
+
+            if (!response?.error) {
+                push(callbackUrl);
+            } else {
+                alert(`Error: ${response.error}`);
+                console.log(`Error while try to login: ${response.error}`);
+            }
+        } catch (error) {
+            alert(`Error: ${error}`);
+            console.log(`Error while try to login: ${error}`);
+        }
     }
 
     async function handleOnPressGoogle() {
         try {
             await signIn("google", {
+                callbackUrl: "/auth/login",
                 redirect: false
             });
         } catch (error) {

@@ -280,8 +280,6 @@ export default function Content({ storyData, chapterData, commentList, donationL
         }
 
         editor.commands.setContent(content);
-
-        console.log(content);
     }, [chapter, editor, story]);
 
     return (

@@ -29,8 +29,6 @@ export default function ListItem(
     return (
         <div className={style.listItem}>
             <div className={style.listItem__profileContainer}>
-                {/* <div className={style.listItem__profileContainer__profile} onClick={handleOnClickProfile}>{name !== "" ? name.charAt(0).toUpperCase() : "?"}</div> */}
-
                 <Image 
                     src={profile}
                     alt="add image profile"

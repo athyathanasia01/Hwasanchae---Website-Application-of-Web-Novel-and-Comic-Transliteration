@@ -1,5 +1,5 @@
 // components
-import Content from "../components/content";
+import Content from "./components/content";
 
 // template
 import { MyStory } from "@hwasanchae/app/template/story/story"; // ✅ 

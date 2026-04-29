@@ -57,7 +57,7 @@ export default function ThirdContent({ data, mediaTranslator }: Props) {
     }
 
     function handleOnClickGlosarium() {
-        push(`/glosarium/${data.id}`);
+        push(`/glossary/${data.id}`);
     }
 
     return (

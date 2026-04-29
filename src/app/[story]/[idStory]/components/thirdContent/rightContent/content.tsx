@@ -43,7 +43,7 @@ export default function RightContent(
                     chapterName={chapterLatestUpdate} 
                 />
             </div>
-            <button className={style.rightContent__glosarium} onClick={handleOnClickGlosarium}>See Story Glosarium</button>
+            <button className={style.rightContent__glosarium} onClick={handleOnClickGlosarium}>See Story Glossary</button>
             <FindTranslator 
                 translator={translator} 
                 listMediaTranslator={listMediaTranslator} 

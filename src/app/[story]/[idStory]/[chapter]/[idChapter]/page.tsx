@@ -76,13 +76,10 @@ async function getPrevAndNext(idStory: string, idChapter: string) {
         const responseData = await response.json();
         const data = responseData.data as MyStory;
         const allChapterList = data.chapters.sort((a, b) => a.sort - b.sort);
-        console.log({ allChapterList });
 
         const findIndex = allChapterList.findIndex((chapter) => chapter.idChapter === idChapter);
         const prevId = findIndex > 0 ? allChapterList[findIndex - 1].idChapter : null;
         const nextId = findIndex < allChapterList.length - 1 ? allChapterList[findIndex + 1].idChapter : null;
-
-        console.log({ prevId, nextId });
 
         let dataPrev = null;
         let dataNext = null;

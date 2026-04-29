@@ -25,27 +25,27 @@ export default function DevLayoutClient({ children }: { children: React.ReactNod
     const menus = menusDev.filter(menu => menu.navigation);
     const devPage = menus.map((menu) => menu.href);
     
-    const { data: session, status }: { data: any, status: string } = useSession();
-    const { push } = useRouter();
+    // const { data: session, status }: { data: any, status: string } = useSession();
+    // const { push } = useRouter();
 
-    console.log(`session: `, session);
-    console.log(`status: `, status);
+    // console.log(`session: `, session);
+    // console.log(`status: `, status);
 
-    useEffect(() => {
-        if (status === 'loading') return;
+    // useEffect(() => {
+    //     if (status === 'loading') return;
 
-        if (status === 'unauthenticated' || session?.user?.role !== "developer") {
-            push('/');
-        } 
-    }, [status, session]);
+    //     if (status === 'unauthenticated' || session?.user?.role !== "developer") {
+    //         push('/');
+    //     } 
+    // }, [status, session]);
 
-    if (status === "loading") {
-        return <p>Loading...</p>;
-    }
+    // if (status === "loading") {
+    //     return <p>Loading...</p>;
+    // }
 
-    if (status === "unauthenticated" || session?.user?.role !== "developer") {
-        return null;
-    }
+    // if (status === "unauthenticated" || session?.user?.role !== "developer") {
+    //     return null;
+    // }
 
     return (
         devPage.includes(pathName) ?

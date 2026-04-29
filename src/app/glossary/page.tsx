@@ -5,13 +5,6 @@ import Content from "./components/content";
 import { MyStory, StoryUser } from "../template/story/story"; // ✅ 
 import { getAllDataInfo } from "../template/uiHelper"; // ✅ 
 
-// metadata
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: `Your Bookmark`
-}
-
 async function getListStory() {
     try {
         const baseUrl = process.env.BASE_URL!;

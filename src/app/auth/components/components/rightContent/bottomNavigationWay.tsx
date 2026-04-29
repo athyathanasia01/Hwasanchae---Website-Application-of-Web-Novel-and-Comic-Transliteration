@@ -22,7 +22,7 @@ export default function BottomNavigationWay({ context, textButton, handleOnPress
                 textButton={textButton}
             />
             {context === 'login' && handleOnPressGoogle &&
-                <button className={style.bottomNavigationWay__buttonGoogle} onClick={handleOnPressGoogle}>
+                <button className={style.bottomNavigationWay__buttonGoogle} type="button" onClick={handleOnPressGoogle}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18" id="Google-Icon--Streamline-Svg-Logos" height="18" width="18">
                         <desc>
                             Google Icon Streamline Icon: https://streamlinehq.com

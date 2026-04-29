@@ -13,7 +13,8 @@ export type MenuNavBar = {
 export const menusPublic: MenuNavBar[] = [
     { name: "Home", href: "/", navigation: false },
     { name: "About Us", href: "/about", navigation: true },
-    { name: "Bookmark", href: "/bookmark", navigation: true }
+    { name: "Bookmark", href: "/bookmark", navigation: true },
+    { name: "Glossary", href: "/glossary", navigation: true }
 ];
 
 // ✅ admin/AdminLayoutClient.tsx

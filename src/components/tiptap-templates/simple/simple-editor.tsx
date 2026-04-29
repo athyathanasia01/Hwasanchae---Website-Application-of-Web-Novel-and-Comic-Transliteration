@@ -54,10 +54,11 @@ import { useCursorVisibility } from "@hwasanchae/hooks/use-cursor-visibility"
 
 // --- Styles ---
 import "@hwasanchae/components/tiptap-templates/simple/simple-editor.scss"
+import style from "@hwasanchae/components/tiptap-templates/simple/simple-editor.scss"
 import { ThemeToggle } from "./theme-toggle"
 
 // template
-import { FONT_OPTIONS } from "@hwasanchae/app/template/variants" // ✅ 
+import { FONT_OPTIONS, THEME_OPTIONS } from "@hwasanchae/app/template/variants" // ✅ 
 
 const MainToolbarContent = ({
   onHighlighterClick,
@@ -134,24 +135,6 @@ const MainToolbarContent = ({
   )
 }
 
-const UserToolbarContent = ({
-  onHighlighterClick,
-  onLinkClick,
-  isMobile,
-}: {
-  onHighlighterClick: () => void
-  onLinkClick: () => void
-  isMobile: boolean
-}) => {
-  return (
-    <>
-      <ToolbarGroup>
-        <ThemeToggle />
-      </ToolbarGroup>
-    </>
-  )
-}
-
 const MobileToolbarContent = ({
   type,
   onBack,
@@ -183,14 +166,32 @@ const MobileToolbarContent = ({
 
 type User = "writer" | "reader" | "developer";
 
+export type Theme = {
+  label: string;
+  value: {
+    fontColor: string;
+    backColor: string;
+  }
+}
+
 type Props = {
   editor: Editor | null;
   user: User;
   myFont?: string | null;
+  theme?: Theme | null;
   handleOnChangeFont?: (e: any) => void;
+  handleOnChangeTheme?: (e: any) => void;
 }
 
-export function SimpleEditor({ editor, user, myFont, handleOnChangeFont }: Props) {
+export function SimpleEditor(
+  { 
+    editor, 
+    user, 
+    myFont, 
+    theme, 
+    handleOnChangeFont, 
+    handleOnChangeTheme
+  }: Props) {
   const isMobile = useIsBreakpoint()
   const { height } = useWindowSize()
   const [mobileView, setMobileView] = useState<"main" | "highlighter" | "link">(
@@ -224,7 +225,13 @@ export function SimpleEditor({ editor, user, myFont, handleOnChangeFont }: Props
     }
 
   return (
-    <div className="simple-editor-wrapper">
+    <div 
+      className="simple-editor-wrapper" 
+      style={user === "reader" && theme ? {
+        '--editor-bg': theme.value.backColor,
+        '--editor-text': theme.value.fontColor
+      } as React.CSSProperties : {}}
+    >
       <EditorContext.Provider value={{ editor }}>
         {user === "writer" && 
           <Toolbar
@@ -252,8 +259,31 @@ export function SimpleEditor({ editor, user, myFont, handleOnChangeFont }: Props
           </Toolbar>
         }
 
-        {user === "reader" && myFont && handleOnChangeFont &&
-          <div className="reader-toolbar">
+        {user === "reader" && 
+          myFont && 
+          theme &&
+          handleOnChangeFont && 
+          handleOnChangeTheme &&
+          
+          <div className="reader-toolbar" style={{ backgroundColor: theme.value.backColor, color: theme.value.fontColor }}>
+            <select 
+              name="selectTheme" 
+              className="themeSelector"
+              id="colorFont"
+              value={theme.label}
+              onChange={(e) => handleOnChangeTheme(e)}
+            >
+              {THEME_OPTIONS.map((theme) => (
+                <option 
+                  key={theme.label} 
+                  value={theme.label}
+                  style={{ backgroundColor: theme.value.backColor, color: theme.value.fontColor, fontWeight: 700 }}
+                >
+                  {theme.label}
+                </option>
+              ))}
+            </select>
+
             <select 
               name="selectFont" 
               className="fontSelector"
@@ -262,13 +292,15 @@ export function SimpleEditor({ editor, user, myFont, handleOnChangeFont }: Props
               onChange={(e) => handleOnChangeFont(e)}
             >
               {FONT_OPTIONS.map((font) => (
-                <option key={font.label} value={font.value}>{font.label}</option>
+                <option 
+                  key={font.label} 
+                  value={font.value}
+                  style={{ backgroundColor: theme.value.backColor, color: theme.value.fontColor, fontStyle: font.value }}
+                >
+                  {font.label}
+                </option>
               ))}
             </select>
-
-            <ToolbarGroup>
-              <ThemeToggle />
-            </ToolbarGroup>
           </div>
         }
 

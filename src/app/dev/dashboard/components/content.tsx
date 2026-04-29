@@ -45,9 +45,7 @@ export default function Content() {
                 setSocialMedia(data.contact);
             }
 
-            setTimeout(() => {
-                setIsLoading(false);
-            }, 1000);
+            setIsLoading(false);
         }
 
         loadData();
@@ -82,21 +80,20 @@ export default function Content() {
                 },
                 body: JSON.stringify({ copyrightName: copyrightName, contact: socialMedia })
             });
+            const responseData = await response.json();
             
-            setTimeout(() => {
-                setIsLoading(false);
-                if (response.status === 200) {
-                    return;
-                }
-            }, 1000);
+            setIsLoading(false);
+            if (response.status === 200) {
+                return;
+            } else {
+                alert(`Error: ${responseData.message}`);
+            }
         } catch (error) {
             alert(`Error: ${error}`);
             console.log(`Error update data: ${error}`);
 
-            setTimeout(() => {
-                setIsLoading(false);
-                return;
-            }, 1000);
+            setIsLoading(false);
+            return;
         }
     }
 

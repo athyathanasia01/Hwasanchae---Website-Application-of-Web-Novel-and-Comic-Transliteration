@@ -112,18 +112,3 @@ export type DataStorySend = Omit<MyStory, 'id'>
 export type DetailStory = MyStory & {
     isBookmark: Boolean;
 }
-
-// unused
-// export type HomeStoryDetail = NewStoryDetail & {
-//     commentId: string;
-// };
-
-// export type PopularStory = MyStory & {
-//     vote: number;
-//     read: number;
-// }
-
-// export type LastUpdateStory = MyStory & {
-//     lastUpdate: string;
-//     vote: number;
-// }
